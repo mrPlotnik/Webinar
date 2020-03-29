@@ -88,10 +88,6 @@ gulp.task('browser-sync', () => {
 gulp.task('js', () => {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
-		'app/libs/waypoints/waypoints.min.js',
-		'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js',		
-		'app/libs/page-scroll-to-id/jquery.malihu.PageScroll2id.js',
-		'app/libs/jquery.stellar/jquery.stellar.min.js',
 		'app/js/common.js'
 		])		
 		.pipe(concat('scripts.min.js'))
@@ -135,7 +131,7 @@ gulp.task('pug', () => {
 //----------------------------------------------
 // Наблюдаем за изменениями, компилируем, перезагружаем
 //----------------------------------------------
-gulp.task('watch', gulp.parallel('pug', 'sass', 'js'), () => {
+gulp.task('watch', () => {
 	gulp.watch('app/sass/**/*.sass', gulp.parallel('sass'));
 	gulp.watch('app/pug/**/*.pug', gulp.parallel('pug'));
 	gulp.watch('app/js/**/*.js', gulp.parallel('js'));
@@ -170,19 +166,13 @@ gulp.task('copyFont', () => {
 // Компилируем CSS в SCSS
 //-------------------------------------------		
 gulp.task('cssToScss', () => {
-	return gulp.src([		
-		'app/libs/magnific-popup/dist/magnific-popup.css',
+	return gulp.src([				
 		'app/libs/animate.css/animate.min.css'
 		])
 	.pipe(cssToScss())
 	.pipe(gulp.dest('app/libs/cssToScss'));
 });
 
-//-------------------------------------------	
-// Скопировать шрифты в директорию dist
-// и преобразовать CSS в SCSS
-//-------------------------------------------	
-gulp.task('beforeTheStart', gulp.parallel('cssToScss', 'copyFont', 'imagemin'));
 
 //----------------------------------------------
 // Очистка директории
@@ -191,7 +181,18 @@ gulp.task('removedist', function() {
 	return del('dist/*')	
 })
 
+//-------------------------------------------	
+// Скопировать шрифты в директорию dist
+// и преобразовать CSS в SCSS
+//-------------------------------------------	
+gulp.task('beforeTheStart', 
+	gulp.series('removedist', 
+		gulp.parallel('cssToScss', 'copyFont', 'imagemin'),
+  	gulp.parallel('pug', 'sass', 'js')
+ 	)
+);
+
 //----------------------------------------------
 // По умолчанию (при запуске)
 //----------------------------------------------
-gulp.task('default', gulp.series('removedist', 'beforeTheStart', 'watch', 'browser-sync'));
+gulp.task('default', gulp.parallel('beforeTheStart', 'browser-sync', 'watch'));
