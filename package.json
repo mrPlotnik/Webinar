@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Plotnik",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.23.6",
@@ -37,8 +37,5 @@
   "bugs": {
     "url": "https://github.com/mrPlotnik/Webinar/issues"
   },
-  "homepage": "https://github.com/mrPlotnik/Webinar#readme",  
-  },
-  "author": "Plotnik",
-  "license": "ISC"
+  "homepage": "https://github.com/mrPlotnik/Webinar#readme"
 }

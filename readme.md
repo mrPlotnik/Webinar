@@ -1,4 +1,4 @@
-<h1><strong>OptimizedHTML 4:</strong> <br>Startup HTML template based on Gulp & Bootstrap 4</h1>
+<h1><strong>Webinar Page</strong> <br>Webinar Waiting Page</h1>
 
 npm i --save-dev
 <br>
@@ -8,3 +8,5 @@ gulp
 
 NODE_ENV=production gulp
 NODE_ENV=development gulp
+
+Позже надо проверить и удалить неиспользуемые библиотеки и пакеты
