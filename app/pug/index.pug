@@ -1,83 +1,103 @@
 doctype html
 html(lang='ru')
-  head
+	head
 
-    meta(charset='utf-8')
-    // <base href="/">
+		meta(charset='utf-8')
+		// <base href="/">
 
-    title OptimizedHTML 4.1
-    meta(name='description', content='')
+		title Webinar
+		meta(name='description', content='')
 
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
 
-    // Template Basic Images Start
-    meta(property='og:image', content='path/to/image.jpg')
-    link(rel='icon', href='img/favicon/favicon.ico')
-    link(rel='apple-touch-icon', sizes='180x180', href='img/favicon/apple-touch-icon-180x180.png')
-    // Template Basic Images End
+		// Template Basic Images Start
+		meta(property='og:image', content='path/to/image.jpg')
+		link(rel='icon', href='img/favicon/favicon.ico')
+		link(rel='apple-touch-icon', sizes='180x180', href='img/favicon/apple-touch-icon-180x180.png')
+		// Template Basic Images End
 
-    // Custom Browsers Color Start
-    // Any Color Address Bar And Notification Line
-    meta(name='theme-color', content='#000')
-    // Custom Browsers Color End
+		// Custom Browsers Color Start
+		// Any Color Address Bar And Notification Line
+		meta(name='theme-color', content='#000')
+		// Custom Browsers Color End
 
-    link(rel='stylesheet', href='css/main.min.css')
+		link(rel='stylesheet', href='css/main.min.css')
 
-  body
+	body
 
-    // Custom HTML
-    .cont-wrap
-      .col-left.float-left.p-0 
-        .cont-left-wrap
-          header
-            .container.h-100
-              .row.h-100.align-items-center
-                .col.col-lg-12
-                  span.logo Plotnik
-                .col.col-lg-12
-                  h1 Name of the webinar goes here
-                    br 
-                    | and it could be very long
-                  hr  
-          section   
-            .container.h-100 
-              .row.h-100.align-items-center
-                article 
-                  .col.col-lg-12
-                    h2 This event will start soon
-                  .container.mt-3
-                    .row
-                      .col-3 
-                        span 1
-                        span 5
-                      .col-3 
-                        span 2
-                        span 0
-                      .col-3 
-                        span 5
-                        span 7
-                      .col-3
-                        span 4
-                        span 4
-                article
-                  .container
-                    .row
-                      .col.col-lg-12
-                        span Friday, 15 April 2017, at 4:00 pm  
-                        span Mountain Time (US & Canada) GMT-7
-                article
-                  .container
-                    .row
-                      .col-6 
-                        span Charles Samson
-                        span Director of Marketing
-                      .col-6
-                        span Antony Alleyne
-                        span Marketing Manager
-          footer pro
-          
-      .col-right.float-right.p-0
-        
-        
-    script(src='js/scripts.min.js')
+		// Custom HTML
+		.cont-wrap
+			.col-left.float-left.p-0 
+				.cont-left-wrap
+					header
+						.container.h-100
+							.row.h-100.align-items-center
+								.col-12
+									.logo
+										img.img-fluid.svg(src="../img/svg/logo.svg", alt="") 
+										| Plotnik WebMaster
+								.col-12
+									h1 Name of the webinar goes here
+										br 
+										| and it could be very long
+									hr  
+					section   
+						.container.h-100 
+							.row.h-100.align-items-center
+								.col-12
+									h2 This event will start soon
+								.col-12.col-sm-6.col-md-12
+									article
+										.container#clock
+											.row
+												.col-3.p-0
+													span.days1
+													span.days2
+													p.mt-3.mb-1 days	
+												.col-3.p-0
+													span.hours1
+													span.hours2
+													p.mt-3.mb-1 hours	
+												.col-3.p-0
+													span.minutes1
+													span.minutes2
+													p.mt-3.mb-1 minutes	
+												.col-3.p-0
+													span.seconds1
+													span.seconds2 
+													p.mt-3.mb-1 seconds
+										.container
+											.row
+												.col-12.my-1
+													span.date1 Friday, 15 April 2017, at 4:00 pm  
+													br
+													span.date2 Mountain Time (US & Canada) GMT-7
+								.col-12.col-sm-6.col-md-12
+									article
+										.container.leading
+											.row
+												.col-6 
+													img.d-block.img-fluid(src="../img/man1.png", alt="")
+													span.name Charles Samson
+													br
+													span.position Director of Marketing
+												.col-6
+													img.d-block.img-fluid(src="../img/man2.png", alt="")
+													span.name Antony Alleyne
+													br
+													span.position Marketing Manager
+					footer.footer-cont-wrap.container
+						.row.h-100.align-items-center
+							.col-12
+								span.br
+									a(href="#") Terms and condition
+								span.br
+									a(href="#") Privace Policy
+								span
+									a(href="#") Disclaimer
+
+			.col-right.float-right.p-0
+				
+				
+		script(src='js/scripts.min.js')

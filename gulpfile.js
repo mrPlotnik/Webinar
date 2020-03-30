@@ -67,7 +67,7 @@ gulp.task( 'deploy', () => {
 
 	return gulp.src( globs, { base: 'dist', buffer: false } )		
 		.pipe(gulpIf(isDev, conn.dest( '/domains/plotnik1992.myjino.ru' )))
-		.pipe(gulpIf(!isDev, conn.dest( '/domains/plotnik-web.ru/' )))
+		.pipe(gulpIf(!isDev, conn.dest( '/domains/plotnik-web.ru/webinar' )))
 } );     
 
 //---------------------------------------------
@@ -162,18 +162,6 @@ gulp.task('copyFont', () => {
 	.pipe(gulp.dest('dist/fonts'));
 });
 
-//-------------------------------------------
-// Компилируем CSS в SCSS
-//-------------------------------------------		
-gulp.task('cssToScss', () => {
-	return gulp.src([				
-		'app/libs/animate.css/animate.min.css'
-		])
-	.pipe(cssToScss())
-	.pipe(gulp.dest('app/libs/cssToScss'));
-});
-
-
 //----------------------------------------------
 // Очистка директории
 //----------------------------------------------
@@ -187,7 +175,7 @@ gulp.task('removedist', function() {
 //-------------------------------------------	
 gulp.task('beforeTheStart', 
 	gulp.series('removedist', 
-		gulp.parallel('cssToScss', 'copyFont', 'imagemin'),
+		gulp.parallel('copyFont', 'imagemin'),
   	gulp.parallel('pug', 'sass', 'js')
  	)
 );

@@ -8,5 +8,3 @@ gulp
 
 NODE_ENV=production gulp
 NODE_ENV=development gulp
-
-Позже надо проверить и удалить неиспользуемые библиотеки и пакеты
