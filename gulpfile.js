@@ -46,7 +46,7 @@ function wrapPipe(taskFn) {
       outStream.on('end', onSuccess);
     }
   }
-}
+};
 
 //---------------------------------------------
 // Vynil-FTP. Деплой на сервер
@@ -57,7 +57,7 @@ gulp.task( 'deploy', () => {
 		host:     'plotnik1992.myjino.ru',
 		// port:     '21',
 		user:     'plotnik1992',
-		password: '', // Do not forget to delete
+		password: '08041992plotnik', // Do not forget to delete
 		parallel: 100,
 		maxConnections: 5,
 		log:      gutil.log
@@ -68,7 +68,7 @@ gulp.task( 'deploy', () => {
 	return gulp.src( globs, { base: 'dist', buffer: false } )		
 		.pipe(gulpIf(isDev, conn.dest( '/domains/plotnik1992.myjino.ru' )))
 		.pipe(gulpIf(!isDev, conn.dest( '/domains/plotnik-web.ru/webinar' )))
-} );     
+});     
 
 //---------------------------------------------
 // Browser-Sync
@@ -167,11 +167,10 @@ gulp.task('copyFont', () => {
 //----------------------------------------------
 gulp.task('removedist', function() {
 	return del('dist/*')	
-})
+});
 
 //-------------------------------------------	
 // Скопировать шрифты в директорию dist
-// и преобразовать CSS в SCSS
 //-------------------------------------------	
 gulp.task('beforeTheStart', 
 	gulp.series('removedist', 
@@ -183,4 +182,8 @@ gulp.task('beforeTheStart',
 //----------------------------------------------
 // По умолчанию (при запуске)
 //----------------------------------------------
-gulp.task('default', gulp.parallel('beforeTheStart', 'browser-sync', 'watch'));
+gulp.task('default', 
+	gulp.series('beforeTheStart',
+		gulp.parallel('browser-sync', 'watch')
+	)
+);
